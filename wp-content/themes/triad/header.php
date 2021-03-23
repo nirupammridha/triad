@@ -33,39 +33,54 @@
 		<?php } ?>
 	</div>	
 	<ul>
-	<li><a href="<?php echo get_site_url(); ?>">Home</a></li>	
-	<li><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">About Us</a>
-		<ul class="dropdown-menu dmenu">
-              <li><a class="dropdown-item" href="#">Company Profile</a></li>
-              <li><a class="dropdown-item" href="#">Our Founder</a></li>
-              <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
-              <li><a class="dropdown-item" href="#">Certificates & Awards</a></li>
-        </ul>
-	</li>	
-	<li><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
-		<ul class="dropdown-menu dmenu">
-              <li><a class="dropdown-item" href="#">Municipal Castings</a></li>
-              <li><a class="dropdown-item" href="#">Pipe Fittings</a></li>
-              <li><a class="dropdown-item" href="#">Automotive Castings</a></li>
-              <li><a class="dropdown-item" href="#">Agricultural Castings</a></li>
-              <li><a class="dropdown-item" href="#">Railway Castings</a></li>
-              <li><a class="dropdown-item" href="#">Electrical Castings</a></li>
-              <li><a class="dropdown-item" href="#">Counterweights</a></li>
-              <li><a class="dropdown-item" href="#">Screw Piles</a></li>
-        </ul>
-	</li>	
-	<li><a href="">Facilities</a></li>
-	<li><a href="">Sustainability</a></li>
-	<li><a href="">Media</a></li>
-	<li><a href="" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Careers</a>
-		<ul class="dropdown-menu dmenu">
-              <li><a class="dropdown-item" href="#">Current Openings</a></li>
-              <li><a class="dropdown-item" href="#">Online Application</a></li>
-        </ul>
-	</li>	
+	<?php $menuitems = wp_get_nav_menu_items('header-menu'); 
+	$count = 0;
+    $submenu = false;
+	foreach ($menuitems as $item) {
+		// set up title and url
+        $title = $item->title;
+        $link = $item->url;
+
+        // item does not have a parent so menu_item_parent equals 0 (false)
+        if ( !$item->menu_item_parent ){
+        // save this id for later comparison with sub-menu items
+        $parent_id = $item->ID;
+        $child_count = nav_count_children($parent_id);
+
+		?>
+		<li>
+			<a <?php if($child_count > 0){?>class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"<?php }?> href="<?php echo $link; ?>"><?php echo $title; ?></a>
 		
-	<li><a href="">contact</a></li>
+		<?php } ?>
+
+		
+		
+		<?php if ( $parent_id == $item->menu_item_parent ){ ?>		
+			<?php if ( !$submenu ){ $submenu = true; ?>	
+			<ul class="dropdown-menu dmenu">
+			<?php } ?>
+	              <li><a class="dropdown-item" href="<?php echo $link; ?>"><?php echo $title; ?></a></li>
+	    	<?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id && $submenu ){ ?>
+	        </ul>
+			<?php $submenu = false; } ?>
+		<?php if ( $menuitems[ $count + 1 ]->menu_item_parent != $parent_id ){ ?>
+		</li>
+	    <?php }
+	    } ?>
+
+	<?php $count++; } 
+
+	function nav_count_children($parent_id){
+	    global $wpdb;
+	    $query = "SELECT COUNT(*) FROM $wpdb->postmeta 
+	            WHERE meta_key='_menu_item_menu_item_parent' 
+	            AND meta_value=$parent_id";
+	    $count_children = $wpdb->get_var( $query );
+	    return $count_children;
+	}
+	?>
 	</ul>
+	
 	</div>
 	<div class="loginblock">
 	<span class="mobmenu" onclick="myFunction2()"><i class="icon-menu"></i></span>	
