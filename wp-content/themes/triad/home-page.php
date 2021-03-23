@@ -114,7 +114,7 @@ QUALITY Standard</h1>
 	<ul>
 		<?php while ($services->have_posts()) : $services->the_post(); ?>
 		<li>
-		<a href="" class="item">
+		<a href="<?=the_permalink();?>" class="item">
 		<h3><?=the_title();?></h3>
 		</a>
 		</li>	
@@ -171,7 +171,7 @@ QUALITY Standard</h1>
 	</div>
 
 	<div class="viewblock">
-	<a href="" class="viewlink">View</a>
+	<a href="<?=the_permalink();?>" class="viewlink">View</a>
 	</div>
 	<div class="contentblock">
 	<h5><?=the_title();?></h5>
