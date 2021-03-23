@@ -56,7 +56,8 @@
 		</div>
 		<div class="col-lg-3">
 		<h3 class="heading">Get in touch</h3>
-		<form class="row gettouch">
+		<?php echo do_shortcode('[contact-form-7 class="row gettouch" id="97" title="Get in touch"]');?>
+		<!-- <form class="row gettouch">
 		<div class="col-md-12 mb-3">
 		<label for="FirstName" class="visually-hidden">Name</label>	
 		<input type="text" id="FirstName" class="form-control" placeholder="Name" required>
@@ -75,7 +76,7 @@
 		</div>	
 		</div>	
 			
-		</form>	
+		</form>	 -->
 			
 		</div>
 		<div class="clr height10"></div>
