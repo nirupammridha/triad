@@ -72,7 +72,7 @@ QUALITY Standard</h1>
   	<?php $r=1;  while ($banners->have_posts()) : $banners->the_post(); ?>
     <div class="carousel-item <?php if($r==1){echo 'active';}?>">
 		<div class="slider-size">
-      <img src="<?php the_post_thumbnail( 'full' ); ?>" class="slider-size" alt="">
+      <img src="<?php the_post_thumbnail( 'full' ); ?>" class="img-size" alt="">
 		</div>
     </div>
     <?php $r++; endwhile; wp_reset_query();?>

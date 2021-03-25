@@ -341,6 +341,10 @@ header .loginblock .loginreg:hover {
   }
 }
 
+.relative-block {
+  position: relative;
+}
+
 .menu {
   width: auto;
   display: inline-block;
@@ -556,7 +560,7 @@ header .loginblock .loginreg:hover {
     height: 200px;
   }
 }
-.slider-size .slider-size {
+.slider-size .img-size {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -648,6 +652,11 @@ header .loginblock .loginreg:hover {
   position: relative;
   z-index: 1;
   padding: 20px 0;
+}
+@media (max-width: 992px) {
+  .aboutimg {
+    padding: 0 0 10px;
+  }
 }
 .aboutimg .img-size {
   border-radius: 6px;
@@ -1058,4 +1067,90 @@ footer .copyright {
   text-align: center;
   font-size: 13px;
   color: #fff;
+}
+
+.other-banner {
+  width: 100%;
+  position: relative;
+  display: block;
+}
+.other-banner .font-size24 {
+  font-size: 24px;
+}
+.other-banner img {
+  width: 100%;
+}
+.other-banner .block-content-other {
+  position: absolute;
+  bottom: 30px;
+  left: 15px;
+  z-index: 6;
+}
+@media (max-width: 767px) {
+  .other-banner .block-content-other {
+    margin-top: 0px;
+  }
+}
+
+ul.aboutlist {
+  list-style: none;
+  width: 100%;
+  margin: 15px 0;
+  padding: 0;
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  ul.aboutlist {
+    overflow: auto;
+    white-space: nowrap;
+    margin: 10px 0 0 0;
+  }
+}
+ul.aboutlist li {
+  width: 25%;
+  float: left;
+}
+@media (max-width: 767px) {
+  ul.aboutlist li {
+    width: 50%;
+    float: none;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+}
+ul.aboutlist li a {
+  background-color: #fff;
+  width: 100%;
+  display: block;
+  padding: 15px;
+  font-family: "Oswald", sans-serif;
+  font-size: 17px;
+  color: #000;
+  text-align: center;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  text-decoration: none;
+  position: relative;
+}
+ul.aboutlist li a:hover {
+  color: #F04043;
+}
+ul.aboutlist li.active a {
+  color: #F04043;
+}
+ul.aboutlist li.active a:before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin: auto;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 10px 25px 0 25px;
+  border-color: #fff transparent transparent transparent;
 }
