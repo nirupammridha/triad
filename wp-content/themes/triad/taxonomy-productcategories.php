@@ -1,15 +1,14 @@
 <?php
 
 get_header(); 
-$post_id =111; 
-$queried_post = get_post($post_id);
-$src = wp_get_attachment_image_src(get_post_thumbnail_id($queried_post->ID), 'full') ;
+$term = get_queried_object();
+$image = get_field('page_banner', $term);
 
 ?>
 
 <section class="other-banner">
-<?php if(!empty($src)):?>
-<img src="<?php echo $src[0]; ?>" alt="" class="img-fluid" >
+<?php if(!empty($image)):?>
+<img src="<?php echo $image; ?>" alt="" class="img-fluid" >
 <?php endif; ?>
 <div class="container relative-block">
 <div class="block-content-other">	

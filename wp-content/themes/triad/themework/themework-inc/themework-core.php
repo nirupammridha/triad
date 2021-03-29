@@ -7,7 +7,7 @@ function themework_core(){
 	themework_create_post_type('product','Product','product');
 	themework_create_post_type('testimonial','Testimonial','testimonial');
 }
-function themework_create_post_type($post_type,$singular_name,$slug,$support=['title', 'editor', 'author', 'thumbnail', 'excerpt']) {
+function themework_create_post_type($post_type,$singular_name,$slug,$support=['title', 'editor', 'author', 'thumbnail', 'excerpt','page-attributes']) {
 	$labels = array(
 		'name'               => _x( $singular_name.'s', 'post type general name', 'your-plugin-textdomain' ),
 		'singular_name'      => _x( $singular_name, 'post type singular name', 'your-plugin-textdomain' ),
@@ -46,6 +46,29 @@ function themework_create_post_type($post_type,$singular_name,$slug,$support=['t
 		'menu_position'      => null,
 		'supports'           => $support
 	);
+	//taxonomy category
+	$post_categories = array(
+		'name' => __( 'Categories' ),
+		'singular_name' => __( 'Category' ),
+		'search_items' =>  __( 'Search Categories' ),
+		'all_items' => __( 'All Categories' ),
+		'edit_item' => __( 'Edit Category' ),
+		'update_item' => __( 'Update Category' ),
+		'add_new_item' => __( 'Add New Category' ),
+		'new_item_name' => __( 'New Category' ),
+		'menu_name' => __( 'Categories' ),
+		); 
+	register_taxonomy($post_type.'categories',
+		array($post_type),
+		array('hierarchical' => true,
+		'labels' => $post_categories,
+		'show_ui' => true,
+		'public' => true,
+		'publicly_queryable' => true,
+		'has_archive' => true,
+		'query_var' => true,
+		'supports' => array( 'thumbnail' )
+	));
 
 	//taxonomy tag
 	$tags = array(
@@ -60,14 +83,13 @@ function themework_create_post_type($post_type,$singular_name,$slug,$support=['t
     'menu_name' => __( 'Tags' )
     ); 	
  
-	register_taxonomy($post_type.'-tags',
+	register_taxonomy($post_type.'tags',
 		array($post_type),
 		array('hierarchical' => false,
 		'labels' => $tags,
 		'show_ui' => true,
 		'public' => false,
-		'query_var' => true,
-		'rewrite' => array( 'slug' => 'tags' )
+		'query_var' => true
 	));
 
 	register_post_type( $post_type, $args );

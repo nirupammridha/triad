@@ -1,16 +1,12 @@
 <?php
-
-get_header(); 
-$post_id =111; 
-$queried_post = get_post($post_id);
-$src = wp_get_attachment_image_src(get_post_thumbnail_id($queried_post->ID), 'full') ;
-
-?>
+/**
+ * Template Name: 	Agricultural Castings
+ * 
+ */
+get_header(); ?>
 
 <section class="other-banner">
-<?php if(!empty($src)):?>
-<img src="<?php echo $src[0]; ?>" alt="" class="img-fluid" >
-<?php endif; ?>
+<img src="http://localhost/triad/wp-content/uploads/2021/03/other-banner.jpg" alt="" class="img-fluid" >
 <div class="container relative-block">
 <div class="block-content-other">	
 <h2 class="font-size24 text-white">Products</h2>
@@ -24,22 +20,11 @@ $src = wp_get_attachment_image_src(get_post_thumbnail_id($queried_post->ID), 'fu
 	<div class="row">
 	<div class="clr height10"></div>
 <div class="col-lg-12">
-<!-- <ul class="productlist">
-<li class="active"><a href="">Automotive Castings</a></li>
-<li><a href="">Agricultural Castings</a></li>
-<li><a href="">Railway Castings</a></li>
-</ul> -->
-<?php
-$taxonomy = 'productcategories';
-$terms = get_terms($taxonomy);
-if ( $terms && !is_wp_error( $terms ) ) {
-?>
 <ul class="productlist">
-    <?php foreach ( $terms as $term ) { ?>
-        <li><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a></li>
-    <?php } ?>
+<li class="active"><a href="<?php echo site_url();?>/automotive-castings">Automotive Castings</a></li>
+<li><a href="<?php echo site_url();?>/agricultural-castings">Agricultural Castings</a></li>
+<li><a href="<?php echo site_url();?>/railway-castings">Railway Castings</a></li>
 </ul>
-<?php }?>
 
 </div>
 <div class="clr height10"></div>

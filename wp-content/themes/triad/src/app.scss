@@ -95,6 +95,7 @@ header {
 	position: relative;
 }
 
+
 //menu-part---------
 .menu {
 	width: auto;
@@ -849,3 +850,102 @@ ul.aboutlist {
 	}	
 	}
 }
+
+ul.productlist {
+	list-style: none;
+	width: 100%;
+	margin: 15px 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	@media (max-width:767px) {	
+	overflow: auto;
+    white-space: nowrap;
+	margin: 10px 0 0 0;	
+	}
+	& li {
+	width: 100%;
+	float: left;
+	@media (max-width:767px) {	
+	width: 50%;	
+	float: none;
+	display: inline-block;
+	margin-bottom: 20px;	
+	}
+	& a {
+	background-color: #fff;
+	width: 100%;
+	display: block;
+	padding: 15px;
+	font-family: $font-Oswald;
+	font-size: 17px;
+	color: #000;
+	text-align: center;
+	@include box-shadow;
+	text-decoration: none;
+	position: relative;
+	&:hover  {
+	color: $theme-color;
+	}	
+	}
+	&.active {
+	& a {
+	color: $theme-color;
+	&:before {
+	content: '';	
+	position: absolute;
+	bottom: -6px;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	margin: auto;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 10px 25px 0 25px;
+	border-color: #fff transparent transparent transparent;
+	}	
+	}
+	}	
+	}
+}
+
+
+/*contact-style------*/
+.contact_input_area .form-group input,
+.contact_input_area .form-group select,
+.contact_input_area .form-group textarea {
+	border-radius: 3px;
+	box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.15);
+	font-weight: 300;
+	height: 50px;
+	margin-bottom: 15px;
+	padding: 15px;
+	-webkit-transition-duration: 500ms;
+	transition-duration: 500ms;
+	width: 100%;
+}
+.contact_input_area .form-group input:focus,
+.contact_input_area .form-group select:focus,
+.contact_input_area .form-group textarea:focus {
+	box-shadow: 5px 5px 24px rgba(0, 0, 0, 0.15);
+	border: none;
+}
+.contact_input_area .form-group textarea {
+	height: 150px;
+}
+.contact_input_area {
+	& .btn-info {
+	background-color:#E7E7E7;
+	border-color:#E7E7E7;
+	color:#3B3B3B;
+	font-size:16px;
+	&:hover {
+	background-color:$theme-color;
+	border-color:$theme-color;
+	color:#fff;
+	}
+	}
+}
+/*End-contact-style------*/
