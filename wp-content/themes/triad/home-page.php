@@ -68,7 +68,8 @@ QUALITY Standard</h1>
   	<?php $r=1;  while ($banners->have_posts()) : $banners->the_post(); ?>
     <div class="carousel-item <?php if($r==1){echo 'active';}?>">
 		<div class="slider-size">
-      <img src="<?php the_post_thumbnail( 'full' ); ?>" class="img-size" alt="">
+       <!--<img src="" class="img-size" alt="">-->
+		<?php the_post_thumbnail( 'full' ); ?>
 		</div>
     </div>
     <?php $r++; endwhile; wp_reset_query();?>
@@ -126,24 +127,27 @@ if ( $terms && !is_wp_error( $terms ) ) {
 	if($term->parent == 0 && category_has_children( $term->term_id, $taxonomy )){
     	?>
 	<div class="col-sm-3">
-	<div class="product-service"><a href="<?php echo site_url();?>/municipal-castings"></a>
+	<div class="product-service">
+		<a href="<?php echo site_url();?>/municipal-castings">
 	<div class="icon-wrapper">
 		<?php if(!empty($image)):?>
 		<img src="<?php echo $image; ?>" alt="" class="img-fluid mx-auto d-block">
 		<?php endif; ?>
 	</div>
 	<div class="product-txt"><?php echo $term->name; ?></div>
+			</a>
 	</div>
 	</div>
 <?php }elseif ($term->parent == 0 && !category_has_children( $term->term_id, $taxonomy )) {?>
 	<div class="col-sm-3">
-	<div class="product-service"><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"></a>
+	<div class="product-service"><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>">
 	<div class="icon-wrapper">
 		<?php if(!empty($image)):?>
 		<img src="<?php echo $image; ?>" alt="" class="img-fluid mx-auto d-block">
 		<?php endif; ?>
 	</div>
 	<div class="product-txt"><?php echo $term->name; ?></div>
+		</a>
 	</div>
 	</div>
 <?php } ?>

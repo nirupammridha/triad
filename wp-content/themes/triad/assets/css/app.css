@@ -424,6 +424,10 @@ header .loginblock .loginreg:hover {
   display: none;
 }
 
+.activelink.active {
+  color: #F04043;
+}
+
 .mobmenu, .moboverlay {
   display: none;
 }
@@ -899,7 +903,7 @@ header .loginblock .loginreg:hover {
     width: 50%;
   }
 }
-.facilities ul li .item {
+.facilities ul li a.item {
   display: block;
   padding: 15px;
   position: relative;
@@ -916,6 +920,13 @@ header .loginblock .loginreg:hover {
   -ms-transition: all 0.6s ease;
   transition: all 0.6s ease;
 }
+.facilities ul li a.item.active {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000 !important;
+}
+.facilities ul li a.item.active:before {
+  color: #000 !important;
+}
 .facilities ul li:before {
   color: #fff;
   content: "0" counter(step-counter);
@@ -927,7 +938,6 @@ header .loginblock .loginreg:hover {
   margin-bottom: 15px;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
-  z-index: 1;
   position: absolute;
   top: 10px;
   left: 0;
@@ -941,35 +951,15 @@ header .loginblock .loginreg:hover {
 }
 .facilities ul li:hover {
   background-color: rgba(255, 255, 255, 0.8);
-}
-.facilities ul li:hover .item {
   color: #000 !important;
 }
 .facilities ul li:hover:before {
   color: #000 !important;
 }
-.facilities ul li.active {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-.facilities ul li.active .item {
-  color: #000 !important;
-}
-.facilities ul li.active:before {
-  color: #000 !important;
-}
-.facilities ul li a {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
 
 .people-say {
   width: 100%;
-  height: 100%;
+  min-height: 260px;
   position: relative;
   display: block;
   border-radius: 3px;
@@ -1087,6 +1077,9 @@ footer ul.list li a {
 footer ul.list li a:hover {
   color: #F04043;
 }
+footer .gettouch {
+  position: relative;
+}
 footer .gettouch .form-control {
   border-radius: 0;
   background-color: transparent;
@@ -1094,6 +1087,32 @@ footer .gettouch .form-control {
 }
 footer .gettouch .btn {
   border-radius: 0;
+  position: relative;
+}
+footer .gettouch .ajax-loader {
+  position: absolute;
+  bottom: 24px;
+  right: -8px;
+  z-index: 1;
+}
+footer .gettouch .wpcf7-response-output {
+  color: #ffb900;
+  font-size: 12px;
+  text-align: center;
+  margin-left: -6px;
+  margin-right: -6px;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+footer .gettouch .mb-3 {
+  position: relative;
+}
+footer .gettouch .mb-3 .wpcf7-not-valid-tip {
+  position: absolute;
+  top: 38px;
+  left: 0px;
+  width: 160px;
+  font-size: 12px;
 }
 footer .copyright {
   width: 100%;
@@ -1387,14 +1406,14 @@ ul.productlist li.active a:before {
   padding: 10px !important;
 }
 
-.btn-style {
+.btn-style, .wpcf7-submit {
   background-color: #F04043;
   color: #fff;
   border: 1px solid #F04043;
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 10px;
 }
-.btn-style:hover {
+.btn-style:hover, .wpcf7-submit:hover {
   background-color: transparent;
   color: #F04043;
 }
@@ -1409,34 +1428,31 @@ ul.productlist li.active a:before {
 }
 
 .product-service {
+  width: 100%;
+}
+.product-service a {
+  width: 100%;
+  color: #000;
+  text-decoration: none;
   background-color: #fff;
   border-radius: 5px;
   border: 1px solid #f1f1f1;
+  padding: 10px;
+  display: block;
   position: relative;
-  width: 100%;
-  min-height: 120px;
+  min-height: 130px;
   overflow: hidden;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   margin-bottom: 10px;
-  padding: 10px;
 }
-.product-service a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  display: block;
-}
-.product-service .icon-wrapper {
+.product-service a .icon-wrapper {
   width: 100%;
   position: relative;
   z-index: 2;
 }
-.product-service .icon-wrapper img {
+.product-service a .icon-wrapper img {
   filter: invert(100%);
   -webkit-transition: all 0.6s ease;
   -moz-transition: all 0.6s ease;
@@ -1444,7 +1460,7 @@ ul.productlist li.active a:before {
   -ms-transition: all 0.6s ease;
   transition: all 0.6s ease;
 }
-.product-service .product-txt {
+.product-service a .product-txt {
   width: 100%;
   position: relative;
   z-index: 2;
@@ -1458,7 +1474,7 @@ ul.productlist li.active a:before {
   -ms-transition: all 0.6s ease;
   transition: all 0.6s ease;
 }
-.product-service:before {
+.product-service a:before {
   position: absolute;
   content: "";
   top: 0px;
@@ -1471,7 +1487,7 @@ ul.productlist li.active a:before {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.product-service:after {
+.product-service a:after {
   position: absolute;
   content: "";
   bottom: 0px;
@@ -1485,17 +1501,17 @@ ul.productlist li.active a:before {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-.product-service:hover .icon-wrapper img {
+.product-service a:hover .icon-wrapper img, .product-service a.active .icon-wrapper img {
   filter: none;
 }
-.product-service:hover .product-txt {
+.product-service a:hover .product-txt, .product-service a.active .product-txt {
   color: #fff;
 }
-.product-service:hover:before {
+.product-service a:hover:before, .product-service a.active:before {
   border-top: 201px solid #F04043;
   border-right: 362px solid transparent;
 }
-.product-service:hover:after {
+.product-service a:hover:after, .product-service a.active:after {
   border-bottom: 200px solid #F04043;
   border-left: 360px solid transparent;
 }
@@ -1665,4 +1681,68 @@ ul.listcusting li a img {
 }
 ul.listcusting li a:hover {
   background-color: #FFEEEE;
+}
+
+.carousel-style {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.carousel-style .owl-item img {
+  width: auto;
+}
+.carousel-style .owl-nav button.owl-prev i,
+.carousel-style .carousel-style .owl-nav button.owl-next i {
+  font-size: 25px;
+  line-height: 50px;
+  font-weight: 600;
+}
+.carousel-style .owl-nav button.owl-prev {
+  position: absolute;
+  top: 30%;
+  left: 0px;
+  width: 30px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  font-size: 23px;
+}
+.carousel-style .owl-nav button.owl-prev.disabled {
+  cursor: not-allowed;
+}
+.carousel-style .owl-nav button.owl-next {
+  position: absolute;
+  top: 30%;
+  right: 0px;
+  width: 30px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  font-size: 23px;
+}
+.carousel-style .owl-nav button.owl-next.disabled {
+  cursor: not-allowed;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
+  width: 100%;
+  display: inline-block;
+}
+
+.pad5 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media (max-width: 992px) {
+  .pad5 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

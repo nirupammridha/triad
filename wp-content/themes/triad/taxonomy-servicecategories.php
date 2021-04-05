@@ -18,10 +18,9 @@ if ( $terms && !is_wp_error( $terms ) ) {
   <ul>
     <?php $i=0; foreach ( $terms as $term ) {?>
     <li class="<?php if($i==0){echo 'active';}?>">
-    <a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"></a>
-    <div class="item">    
+    <a class="item activelink" href="<?php echo get_term_link($term->slug, $taxonomy); ?>">    
     <h3><?php echo $term->name; ?></h3>
-    </div>  
+    </a>  
     </li> 
     <?php $i++; } ?>
   </ul>

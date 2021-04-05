@@ -31,7 +31,7 @@
 			<li><a href="<?php echo site_url();?>/terms-conditions">Terms & Conditions</a></li>	
 		</ul>
 		</div>
-		<div class="col-lg-3">
+		<div class="col-lg-2">
 		<h3 class="heading">Useful Links</h3>
 		<ul class="list">
 			<li><a href="<?php echo site_url();?>">Homepage</a></li>	
@@ -42,10 +42,11 @@
 		</ul>	
 			
 		</div>
-		<div class="col-lg-3">
+		<div class="col-lg-4">
 		<h3 class="heading">Get in touch</h3>
+			<div class="row gettouch">
 		<?php echo do_shortcode('[contact-form-7 class="row gettouch" id="97" title="Get in touch"]');?>
-			
+			</div>
 		</div>
 		<div class="clr height10"></div>
 	</div>

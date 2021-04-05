@@ -38,7 +38,9 @@ get_header();
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor veniam earum quia culpa.</p>
 <div class="height10 clr"></div>
 <div class="contact_from">
+<div class="contact_input_area">	
 <?php echo do_shortcode('[contact-form-7 id="126" title="Contact"]');?>
+</div>
 </div>
  </div>
 		
