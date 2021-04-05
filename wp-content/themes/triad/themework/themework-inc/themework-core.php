@@ -5,6 +5,7 @@ function themework_core(){
 	themework_create_post_type('service','Service','service');
 	themework_create_post_type('sustainability','Sustainability','sustainability');
 	themework_create_post_type('product','Product','product');
+	themework_create_post_type('tmedia','Tmedia','tmedia');
 	themework_create_post_type('testimonial','Testimonial','testimonial');
 }
 function themework_create_post_type($post_type,$singular_name,$slug,$support=['title', 'editor', 'author', 'thumbnail', 'excerpt','page-attributes']) {
@@ -95,60 +96,6 @@ function themework_create_post_type($post_type,$singular_name,$slug,$support=['t
 	register_post_type( $post_type, $args );
 }
 
-
-//Add Custom Post type Team
-function team_register() {  
-		
-		$member_labels = array(
-	 	'name' => __( 'Members'),
-		'singular_name' => __( 'Member'),
-		'search_items' =>  __( 'Search Members'),
-		'all_items' => __( 'All Members'),
-		'parent_item' => __( 'Parent Member'),
-		'edit_item' => __( 'Edit Member'),
-		'update_item' => __( 'Update Member'),
-		'add_new_item' => __( 'Add New Member'),
-		'menu_name' => __( 'Team')
-		);
-		$team_menu_icon = 'dashicons-groups';	
-		$args = array(
-		'labels' => $member_labels,
-		'rewrite' => array('slug' => 'team','with_front' => false),
-		'public' => true,
-		'publicly_queryable' => true,
-		'exclude_from_search' => true,
-		'show_ui' => true,
-		'hierarchical' => false,
-		'menu_position' => 25,
-		'menu_icon' => $team_menu_icon,
-		'supports' => array('title', 'editor', 'thumbnail', 'revisions')  
-		); 
-		//taxonomy category
-		$member_categories = array(
-		'name' => __( 'Categories' ),
-		'singular_name' => __( 'Category' ),
-		'search_items' =>  __( 'Search Categories' ),
-		'all_items' => __( 'All Categories' ),
-		'edit_item' => __( 'Edit Category' ),
-		'update_item' => __( 'Update Category' ),
-		'add_new_item' => __( 'Add New Category' ),
-		'new_item_name' => __( 'New Category' ),
-		'menu_name' => __( 'Categories' )
-		); 	
-	 
-		register_taxonomy('member-categories',
-			array('team'),
-			array('hierarchical' => true,
-			'labels' => $member_categories,
-			'show_ui' => true,
-			'public' => false,
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'categories' )
-		));
-		
-		register_post_type( 'team' , $args );  
-	}  
-	add_action('init', 'team_register');
 
 	//Add Custom Post type portfolio
 function project_register() {  

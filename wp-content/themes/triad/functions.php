@@ -37,3 +37,18 @@ function custom_theme_setup() {
 
 }
 add_action( 'after_setup_theme', 'custom_theme_setup');
+
+
+/*
+Check if category has a sub category.
+*/
+
+function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
+    $children = get_categories( array( 
+        'child_of'      => $term_id,
+        'taxonomy'      => $taxonomy,
+        'hide_empty'    => false,
+        'fields'        => 'ids',
+    ) );
+    return ( $children );
+}
