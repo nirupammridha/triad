@@ -164,7 +164,7 @@ if ( $terms && !is_wp_error( $terms ) ) {
 
 <section class="fixed_img sec-bg1">
 <div class="fixed-overlay"></div>
-<div class="container block-paralax">
+<div class="container">
 
 <h2 class="section-title white">Facilities</h2>
 <div class="clr"></div>
@@ -223,7 +223,7 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 
 <section class="fixed_img sec-bg2">
 <div class="fixed-overlay"></div>
-<div class="container block-paralax">
+<div class="container">
 <div class="row">
 	
 	<h2 class="section-title white">PRODUCTS</h2>
@@ -335,7 +335,7 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 
 <section class="fixed_img sec-bg1">
 <div class="fixed-overlay2"></div>
-<div class="container block-paralax">
+<div class="container">
 
 <div class="row">
 	<div class="col-lg-6 text-white">

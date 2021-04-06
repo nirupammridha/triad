@@ -12,8 +12,9 @@ if (!function_exists('themework_admin_scripts')) {
 if(!function_exists('themework_load_scripts')) {
 	function themework_load_scripts() {
 		wp_enqueue_script('javascript-js', THEME_URL . '/assets/js/javascript.js', array(), false, true);
-		wp_enqueue_script('jquery');	
+		//wp_enqueue_script('jquery');	
 
+		wp_enqueue_script('jquery-js', THEME_URL . '/assets/js/jquery-1.11.3.min.js', '', array(), false, true);	
 		wp_enqueue_script('bootstrap-bundle-min-js', THEME_URL . '/assets/js/bootstrap.bundle.min.js', '', array(), false, true);	
 		wp_enqueue_script('notify-js', THEME_URL . '/assets/js/bootstrap-notify.js', '', array(), false, true);
 		wp_enqueue_script('spine-js', THEME_URL . '/assets/js/spin.min.js', '', array(), false, true);
