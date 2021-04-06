@@ -157,7 +157,7 @@ if ( $terms && !is_wp_error( $terms ) ) {
 
 <section class="fixed_img sec-bg1">
 <div class="fixed-overlay"></div>
-<div class="container">
+<div class="container block-paralax">
 
 <h2 class="section-title white">Facilities</h2>
 <div class="clr"></div>
@@ -362,7 +362,7 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 
 <section class="fixed_img sec-bg1">
 <div class="fixed-overlay2"></div>
-<div class="container">
+<div class="container block-paralax">
 
 <div class="row">
 	<div class="col-lg-6 text-white">
