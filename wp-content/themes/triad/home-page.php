@@ -108,15 +108,8 @@ QUALITY Standard</h1>
 <div class="col-lg-12"><h2 class="section-title">Categories</h2></div>
 </div>
 	
-<div id="carouselExampleProduct" class="carousel slide" data-bs-ride="carousel">
-<div class="carousel-indicators">
-<button type="button" data-bs-target="#carouselExampleProduct" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-<!--<button type="button" data-bs-target="#carouselExampleProduct" data-bs-slide-to="1" aria-label="Slide 2"></button>-->
-</div>
+<div class="owl-carousel carousel-style category">
 
-<div class="carousel-inner">
-<div class="carousel-item active">
-<div class="row">
 <?php
 $taxonomy = 'productcategories';
 $terms = get_terms($taxonomy);
@@ -126,21 +119,22 @@ if ( $terms && !is_wp_error( $terms ) ) {
 	$image = get_field('icon', "productcategories_".$term->term_id ); 	
 	if($term->parent == 0 && category_has_children( $term->term_id, $taxonomy )){
     	?>
-	<div class="col-sm-3">
-	<div class="product-service">
-		<a href="<?php echo site_url();?>/municipal-castings">
-	<div class="icon-wrapper">
-		<?php if(!empty($image)):?>
-		<img src="<?php echo $image; ?>" alt="" class="img-fluid mx-auto d-block">
-		<?php endif; ?>
-	</div>
-	<div class="product-txt"><?php echo $term->name; ?></div>
-			</a>
-	</div>
-	</div>
+<div class="item">
+<div class="product-service">
+<a href="<?php echo site_url();?>/municipal-castings" >
+<div class="icon-wrapper">
+<?php if(!empty($image)):?>
+<img src="<?php echo $image; ?>" alt="" class="img-fluid mx-auto d-block">
+<?php endif; ?>
+</div>
+<div class="product-txt"><?php echo $term->name; ?></div>
+</a>
+</div>	
+</div>
 <?php }elseif ($term->parent == 0 && !category_has_children( $term->term_id, $taxonomy )) {?>
-	<div class="col-sm-3">
-	<div class="product-service"><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>">
+	<div class="item">
+	<div class="product-service">
+	<a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" >
 	<div class="icon-wrapper">
 		<?php if(!empty($image)):?>
 		<img src="<?php echo $image; ?>" alt="" class="img-fluid mx-auto d-block">
@@ -153,10 +147,9 @@ if ( $terms && !is_wp_error( $terms ) ) {
 <?php } ?>
 <?php } ?>
 <?php } ?>
+
 </div>
-</div>
-</div>
-</div>	
+
 
 </div>
 <div class="clr height20"></div>
@@ -223,7 +216,7 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 
 <section class="fixed_img sec-bg2">
 <div class="fixed-overlay"></div>
-<div class="container">
+<div class="container block-paralax">
 <div class="row">
 	
 	<h2 class="section-title white">PRODUCTS</h2>
@@ -282,7 +275,7 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 <div class="container">
 <h2 class="section-title">WHAT PEOPLE SAY</h2>	
 	
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<?php /*?><div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 	<div class="carousel-indicators">
 	<?php $c = wp_count_posts('testimonial')->publish;$j=0; for($i=0;$i<$c;$i +=2){ ?>
     <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="<?php echo $j;?>" <?php if($j==0) :?>class="active"<?php endif;?> aria-current="true" aria-label="Slide <?=$j+1;?>"></button>
@@ -326,9 +319,43 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
     <?php $r++;} ?>
   </div>
 
+</div><?php */?>
+	
+<div class="owl-carousel carousel-style peoplesay">
+<div class="item">	
+<div class="people-say">
+<div class="peopleimg"><img src="assets/images/people/people-01.jpg" alt="" class="img-size"></div>
+<div class="peoplecontent">
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1 500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially</p>
+<p><em><strong>ERICK OLSON</strong></em></p>
+<p>Media Adviser</p>
+</div>
+</div>	
+</div>
+
+<div class="item">
+<div class="people-say">
+<div class="peopleimg"><img src="assets/images/people/people-02.jpg" alt="" class="img-size"></div>
+<div class="peoplecontent">
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1 500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+<p><em><strong>ERICK OLSON</strong></em></p>
+<p>Media Adviser</p>
+</div>
+</div>
 </div>
 	
-
+<div class="item">	
+<div class="people-say">
+<div class="peopleimg"><img src="assets/images/people/people-02.jpg" alt="" class="img-size"></div>
+<div class="peoplecontent">
+<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1 500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+<p><em><strong>ERICK OLSON</strong></em></p>
+<p>Media Adviser</p>
+</div>
+</div>
+</div>
+	
+</div>
 </div>
 	<div class="clr height20"></div>
 </section>

@@ -56,9 +56,9 @@ $videos = new WP_Query($_videoArgs);
 <div class="col-lg-12">
 <h3>Company Profile</h3>		
 </div>
-	<div class="col-lg-3 padmar10">
+	<div class="col-lg-4 padmar10">
 	<div class="featured-block">
-	<div class="imgblock"><img src="assets/images/profile-img.png" alt="" class="img-size"></div>
+	<div class="downloadblock"><embed src="http://superironfoundry.com/images/pdf/brochure/SIF-company-profile.pdf" width="100%" height="250px" /></div>
 
 	<div class="viewblock">
 	<a href="" class="viewlink" data-bs-toggle="modal" data-bs-target="#exampleModal">View</a>
@@ -74,12 +74,10 @@ $videos = new WP_Query($_videoArgs);
 <h3>Video</h3>		
 </div>
 		
-	<div class="col-lg-3 padmar10">
+	<div class="col-lg-4 padmar10">
 	<div class="featured-block">
-	<div class="imgblock"><img src="assets/images/video.jpg" alt="" class="img-size"></div>
-
-	<div class="viewblock">
-	<a href="" class="viewlink" data-bs-toggle="modal" data-bs-target="#exampleModal">View</a>
+	<div class="downloadblock">
+		<iframe width="100%" height="250" src="https://www.youtube.com/embed/uWS_Vprto_E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	</div>
 	<div class="contentblock">
 	<h5>SIF Company Profile</h5>
@@ -96,14 +94,14 @@ $videos = new WP_Query($_videoArgs);
 <!-- Modal-Box -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <strong class="modal-title" id="exampleModalLabel">Case Differential Casting</strong>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       <img src="assets/images/profile-img.png" alt="" class="img-fluid mx-auto d-block">
+       <embed src="http://superironfoundry.com/images/pdf/brochure/SIF-company-profile.pdf" width="100%" height="600px" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

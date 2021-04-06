@@ -40,9 +40,9 @@ if ( $terms && !is_wp_error( $terms ) ) {
     <?php foreach ( $terms as $term ) { 	
 	if($term->parent == 0 && category_has_children( $term->term_id, $taxonomy )){
     	?>
-        <li><a href="<?php echo site_url();?>/municipal-castings"><?php echo $term->name; ?></a></li>
+        <li><a href="<?php echo site_url();?>/municipal-castings" class="activelink"><?php echo $term->name; ?></a></li>
     <?php }elseif ($term->parent == 0 && !category_has_children( $term->term_id, $taxonomy )) {?>
-    	<li><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a></li>
+    	<li><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" class="activelink"><?php echo $term->name; ?></a></li>
     <?php } ?>
    <?php } ?>
 </ul>

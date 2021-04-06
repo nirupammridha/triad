@@ -33,15 +33,3 @@ function myFunction2() {
 } 
 
 
-$(function() {	
-
-//active-menu---------->
-var pgurl = window.location.href.substr(window.location.href
-.lastIndexOf("/")+1);
-     $(".activelink").each(function(){
-          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
-          $(this).addClass("active");
-});
-		
-
-});

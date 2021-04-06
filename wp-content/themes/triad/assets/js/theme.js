@@ -63,3 +63,84 @@ function preventNumberInput(evt) {
     return true;
 }
 
+
+
+
+$(function() {	
+
+//active-menu---------->
+var pgurl = window.location.href.substr(window.location.href
+.lastIndexOf("/")+1);
+     $(".activelink").each(function(){
+          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+          $(this).addClass("active");
+});
+		
+//owl-carousel------
+$('.category').owlCarousel({
+	loop: false,
+	margin: 10,
+	dots: false,
+	nav: true,
+//	lazyLoad : true,
+//	navigation : true,
+	navText: [
+    "<i class='icon-arrow-left'></i>",
+    "<i class='icon-arrow-right'></i>"
+  ],
+	autoplay:true,
+    autoplayTimeout:5000,
+    stopOnHover : true,
+	autoplayHoverPause: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:2
+        },
+        1000:{
+            items:4
+        },
+		1300:{
+            items:4
+        },
+		1600:{
+            items:4
+        }
+    }	
+});	
+$('.peoplesay').owlCarousel({
+	loop: false,
+	margin: 10,
+	dots: false,
+	nav: true,
+//	lazyLoad : true,
+//	navigation : true,
+	navText: [
+    "<i class='icon-arrow-left'></i>",
+    "<i class='icon-arrow-right'></i>"
+  ],
+	autoplay:true,
+    autoplayTimeout:5000,
+    stopOnHover : true,
+	autoplayHoverPause: true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:2
+        },
+		1300:{
+            items:2
+        },
+		1600:{
+            items:2
+        }
+    }	
+});	
+});
