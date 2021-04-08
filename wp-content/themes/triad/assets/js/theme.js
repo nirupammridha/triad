@@ -69,11 +69,18 @@ function preventNumberInput(evt) {
 $(function() {	
 
 //active-menu---------->
-var pgurl = window.location.href.substr(window.location.href
-.lastIndexOf("/")+1);
-     $(".activelink").each(function(){
-          if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
-          $(this).addClass("active");
+//var pgurl = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+var pgurl = window.location.href.substr(window.location.href.indexOf("/"));
+var myarr = pgurl.split("/");
+var filtered = myarr.filter(function (el) {
+  return el != "";
+});
+var activepart = filtered[filtered.length - 1];
+$(".activelink").each(function(){
+    var url = $(this).attr("href");
+    //console.log(url.indexOf(activepart) );    
+  if(url.indexOf(activepart) > 0 || $(this).attr("href") == '' )
+  $(this).addClass("active");
 });
 		
 //owl-carousel------

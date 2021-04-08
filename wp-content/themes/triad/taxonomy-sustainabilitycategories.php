@@ -27,7 +27,7 @@ $image = get_field('page_banner', $cat);
   ?>
   <ul class="aboutlist">
     <?php foreach ( $terms as $term ) { ?>
-    <li><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a></li>
+    <li><a href="<?php echo get_term_link($term->slug, $taxonomy); ?>" class="activelink"><?php echo $term->name; ?></a></li>
     <?php } ?> 
   </ul>
   <?php }?>

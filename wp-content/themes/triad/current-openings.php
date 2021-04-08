@@ -32,8 +32,8 @@ if(isset($_POST['search_btn'])) {
 	<div class="clr height10"></div>
   <div class="col-lg-12">
   <ul class="productlist">
-  	<li class="active"><a href="<?php echo site_url();?>/current-openings">Current Openings</a></li>
-  	<li><a href="<?php echo site_url();?>/online-application">Online Application</a></li>
+  	<li class="active"><a href="<?php echo site_url();?>/current-openings" class="activelink">Current Openings</a></li>
+  	<li><a href="<?php echo site_url();?>/online-application" class="activelink">Online Application</a></li>
   </ul>
   </div>
 <div class="clr height30"></div>
