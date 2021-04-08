@@ -1729,7 +1729,7 @@ ul.listcusting li a:hover {
   left: 0px;
   width: 30px;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #fff !important;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
@@ -1744,7 +1744,7 @@ ul.listcusting li a:hover {
   right: 0px;
   width: 30px;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: #fff !important;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
