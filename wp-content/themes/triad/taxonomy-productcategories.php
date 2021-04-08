@@ -5,7 +5,7 @@ $term = get_queried_object();
 $image = get_field('page_banner', $term);
 $cat_content = get_field('cat_content', "productcategories_".$term->term_id );
 $parent = get_term_top_most_parent( $term->term_id, $term->taxonomy );
-//echo "<pre>"; print_r($parent->term_id); exit();
+
 $categories = array();
 if($parent->term_id == 12){
 	$categories = get_categories( array( 
@@ -14,6 +14,7 @@ if($parent->term_id == 12){
 	    'hide_empty'    => false,
 	) );
 }
+//echo "<pre>"; print_r($categories); exit();
 ?>
 
 <section class="other-banner">
@@ -38,16 +39,23 @@ if($parent->term_id == 12){
 	
 	
 <div class="col-lg-3">
-<div class="pronamelist" style="display: none;">
+<div class="pronamelist" <?php if(!empty($categories)){?>style="display: none;"<?php }?>>
+<?php
+$taxonomy = 'productcategories';
+$terms = get_terms($taxonomy);
+if ( $terms && !is_wp_error( $terms ) ) {
+?>
 <ul>
-<li><a href="">Municipal Castings</a></li>	
-<li><a href="">Pipe Fittings</a></li>	
-<li><a href="">Agricultural Castings</a></li>	
-<li><a href="">Electrical Castings</a></li>	
-</ul>	
+    <?php foreach ( $terms as $term_cat ) { 
+	if($term_cat->parent == 0 && !category_has_children( $term_cat->term_id, $taxonomy )) {?>
+    	<li><a href="<?php echo get_term_link($term_cat->slug, $taxonomy); ?>" class="activelink"><?php echo $term_cat->name; ?></a></li>
+    <?php } ?>
+   <?php } ?>
+</ul>
+<?php }?>	
 </div>	
 	
-<div class="accordion bg-white accordion-height" id="accordionExample" >
+<div class="accordion bg-white accordion-height" id="accordionExample" <?php if(empty($categories)){?>style="display: none;"<?php }?>>
 <?php foreach($categories as $category) {
 		if($category->parent == 12 && category_has_children( $category->term_id, $taxonomy )){
 		$subcategories = get_terms($term->taxonomy,array('child_of' => $category->term_id));
@@ -64,7 +72,7 @@ if($parent->term_id == 12){
 		  
 	<ul class="listcusting">
 		<?php foreach($subcategories as $subcat) {?>
-		<li><a href="<?php echo get_term_link($subcat->slug, $taxonomy); ?>">
+		<li><a href="<?php echo get_term_link($subcat->slug, $taxonomy); ?>" class="activelink">
 			<?php if(!empty($image)):?>
 			<img src="<?php echo $image; ?>" alt="">
 			<?php endif; ?>
