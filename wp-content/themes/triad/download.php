@@ -47,8 +47,8 @@ $videos = new WP_Query($_videoArgs);
 	<div class="clr height10"></div>
 <div class="col-lg-12">
 <ul class="productlist">
-	<li class="active"><a href="dropdown.php">Download</a></li>
-	<li><a href="exhibitions.php">Exhibitions</a></li>
+	<li class="active"><a href="<?php echo site_url();?>/download">Download</a></li>
+	<li><a href="<?php echo site_url();?>/tmediacategories/exhibitions">Exhibitions</a></li>
 </ul>
 </div>
 <div class="clr height10"></div>
@@ -56,60 +56,62 @@ $videos = new WP_Query($_videoArgs);
 <div class="col-lg-12">
 <h3>Company Profile</h3>		
 </div>
-	<div class="col-lg-4 padmar10">
-	<div class="featured-block">
-	<div class="downloadblock"><embed src="http://superironfoundry.com/images/pdf/brochure/SIF-company-profile.pdf" width="100%" height="250px" /></div>
 
-	<div class="viewblock">
-	<a href="" class="viewlink" data-bs-toggle="modal" data-bs-target="#exampleModal">View</a>
-	</div>
-	<div class="contentblock">
-	<h5>SIF Company Profile</h5>
-	</div>
-	</div>
-	</div>
+	<?php while ($downloads->have_posts()) : $downloads->the_post(); ?>
+		<div class="col-lg-4 padmar10">
+		<div class="featured-block">
+		<div class="downloadblock">
+			<embed src="<?=the_content();?>" width="100%" height="250px" />
+		</div>
+		<div class="viewblock">
+		<a href="" class="viewlink" data-bs-toggle="modal" data-bs-target="#aa<?=$post->ID;?>">View</a>
+		</div>
+		<div class="contentblock">
+		<h5><?=the_title();?></h5>
+		</div>
+		</div>
+		</div>
+		
+		<!-- Modal-Box -->
+		<div class="modal fade" id="aa<?=$post->ID;?>" tabindex="-1" aria-labelledby="exampleModalLabel<?=$post->ID;?>" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <strong class="modal-title" id="exampleModalLabel<?=$post->ID;?>"><?=the_title();?></strong>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		       <embed src="<?=the_content();?>" width="100%" height="600px"/>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>		        
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	<?php endwhile; wp_reset_query();?>
 
 		
 <div class="col-lg-12">
 <h3>Video</h3>		
 </div>
-		
+<?php while ($videos->have_posts()) : $videos->the_post(); ?>	
 	<div class="col-lg-4 padmar10">
 	<div class="featured-block">
 	<div class="downloadblock">
-		<iframe width="100%" height="250" src="https://www.youtube.com/embed/uWS_Vprto_E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<?=the_content();?>
 	</div>
 	<div class="contentblock">
-	<h5>SIF Company Profile</h5>
+	<h5><?=the_title();?></h5>
 	</div>
 	</div>
 	</div>	
-		
+<?php endwhile; wp_reset_query();?>		
 	
 </div>
 <div class="clr height20"></div>
 </div>	
 </section>
-
-<!-- Modal-Box -->
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <strong class="modal-title" id="exampleModalLabel">Case Differential Casting</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       <embed src="http://superironfoundry.com/images/pdf/brochure/SIF-company-profile.pdf" width="100%" height="600px" />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
 	
 <?php
 get_footer();	

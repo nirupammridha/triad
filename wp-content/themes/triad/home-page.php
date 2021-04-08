@@ -275,85 +275,32 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 <div class="container">
 <h2 class="section-title">WHAT PEOPLE SAY</h2>	
 	
-<?php /*?><div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-	<div class="carousel-indicators">
-	<?php $c = wp_count_posts('testimonial')->publish;$j=0; for($i=0;$i<$c;$i +=2){ ?>
-    <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="<?php echo $j;?>" <?php if($j==0) :?>class="active"<?php endif;?> aria-current="true" aria-label="Slide <?=$j+1;?>"></button>
-    <?php $j++;} ?> 
-    </div>
-	
-  <div class="carousel-inner">
-  	<?php  $r=0;                    
-    for($i=0;$i<$c;$i +=2){?>
-    <div class="carousel-item <?php if($i==0) :?>active<?php endif;?>">
-      <div class="row">
-      	<?php $args = array(
-		'post_type'=> 'testimonial',
-		'orderby'    => 'ID',
-		'post_status' => 'publish',
-		'order'    => 'ASC',
-		'posts_per_page' => 2,
-		'offset' => $r*2
-		);
-		$testimonials = new WP_Query( $args );
-     	while ($testimonials->have_posts()) : $testimonials->the_post(); ?>
-		<div class="col-lg-6 mbottom10">
-		<div class="people-say">
-		<div class="peopleimg">
-			<?php if(has_post_thumbnail()) { 
-	         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ),'full');
-	        ?>
-			<img src="<?php echo esc_url( $image[0] ); ?>" alt="<?php the_title(); ?>" class="img-size">
-			<?php } ?>
-		</div>
-			<div class="peoplecontent">
-			<?=the_content();?>
-				<p><em><strong><?php the_title(); ?></strong></em></p>
-				<p><?php the_excerpt(); ?></p>
-			</div>
-		</div>
-		</div>
-	<?php endwhile; wp_reset_query();?>	
-	</div>
-    </div>
-    <?php $r++;} ?>
-  </div>
-
-</div><?php */?>
-	
 <div class="owl-carousel carousel-style peoplesay">
+<?php $args = array(
+'post_type'=> 'testimonial',
+'orderby'    => 'ID',
+'post_status' => 'publish',
+'order'    => 'ASC'
+);
+$testimonials = new WP_Query( $args );
+while ($testimonials->have_posts()) : $testimonials->the_post(); ?>
 <div class="item">	
 <div class="people-say">
-<div class="peopleimg"><img src="assets/images/people/people-01.jpg" alt="" class="img-size"></div>
+<div class="peopleimg">
+<?php if(has_post_thumbnail()) { 
+         $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ),'full');
+        ?>
+	<img src="<?php echo esc_url( $image[0] ); ?>" alt="" class="img-size">
+<?php } ?>
+</div>
 <div class="peoplecontent">
-<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1 500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially</p>
-<p><em><strong>ERICK OLSON</strong></em></p>
-<p>Media Adviser</p>
+<p><?=the_content();?></p>
+<p><em><strong><?php the_title(); ?></strong></em></p>
+<p><?php the_excerpt(); ?></p>
 </div>
 </div>	
 </div>
-
-<div class="item">
-<div class="people-say">
-<div class="peopleimg"><img src="assets/images/people/people-02.jpg" alt="" class="img-size"></div>
-<div class="peoplecontent">
-<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1 500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-<p><em><strong>ERICK OLSON</strong></em></p>
-<p>Media Adviser</p>
-</div>
-</div>
-</div>
-	
-<div class="item">	
-<div class="people-say">
-<div class="peopleimg"><img src="assets/images/people/people-02.jpg" alt="" class="img-size"></div>
-<div class="peoplecontent">
-<p>Lorem Ipsum has been the industry's standard dummy text ever since the 1 500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-<p><em><strong>ERICK OLSON</strong></em></p>
-<p>Media Adviser</p>
-</div>
-</div>
-</div>
+<?php endwhile; wp_reset_query();?>	
 	
 </div>
 </div>

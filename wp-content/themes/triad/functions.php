@@ -52,3 +52,17 @@ function category_has_children( $term_id = 0, $taxonomy = 'category' ) {
     ) );
     return ( $children );
 }
+
+remove_filter('the_content','wpautop');
+
+// Determine the top-most parent of a term
+function get_term_top_most_parent( $term, $taxonomy ) {
+    // Start from the current term
+    $parent  = get_term( $term, $taxonomy );
+    // Climb up the hierarchy until we reach a term with parent = '0'
+    while ( $parent->parent != '0' ) {
+        $term_id = $parent->parent;
+        $parent  = get_term( $term_id, $taxonomy);
+    }
+    return $parent;
+}

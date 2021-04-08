@@ -21,8 +21,8 @@ $image = get_field('page_banner', $cat);
   <div class="clr height10"></div>
 <div class="col-lg-12">
 <ul class="productlist">
-  <li><a href="dropdown.php">Download</a></li>
-  <li class="active"><a href="exhibitions.php">Exhibitions</a></li>
+  <li class="active"><a href="<?php echo site_url();?>/download">Download</a></li>
+  <li><a href="<?php echo site_url();?>/tmediacategories/exhibitions">Exhibitions</a></li>
 </ul>
 </div>
 <div class="clr height10"></div>

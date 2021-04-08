@@ -35,8 +35,8 @@
 		<h3 class="heading">Useful Links</h3>
 		<ul class="list">
 			<li><a href="<?php echo site_url();?>">Homepage</a></li>	
-			<li><a href="<?php echo site_url();?>/product">Products</a></li>	
-			<li><a href="<?php echo site_url();?>/service">Facilities</a></li>
+			<li><a href="<?php echo site_url();?>/municipal-castings">Products</a></li>	
+			<li><a href="<?php echo site_url();?>/facilities">Facilities</a></li>
 			<li><a href="<?php echo site_url();?>/current-openings">Careers</a></li>
 			<li><a href="<?php echo site_url();?>/contact">Contact</a></li>	
 		</ul>	
