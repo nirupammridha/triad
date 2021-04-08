@@ -294,9 +294,9 @@ while ($testimonials->have_posts()) : $testimonials->the_post(); ?>
 <?php } ?>
 </div>
 <div class="peoplecontent">
-<p><?=the_content();?></p>
+<p class="textellipsis"><?=the_content();?></p>
 <p><em><strong><?php the_title(); ?></strong></em></p>
-<p><?php the_excerpt(); ?></p>
+<?php the_excerpt(); ?>
 </div>
 </div>	
 </div>

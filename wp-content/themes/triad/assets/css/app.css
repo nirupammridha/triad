@@ -1029,8 +1029,17 @@ header .loginblock .loginreg:hover {
   font-size: 13px;
   color: #757575;
   margin: 0;
+  margin: 0;
   padding-bottom: 3px;
   padding-top: 3px;
+}
+.people-say .peoplecontent p.textellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px;
 }
 .people-say .peoplecontent p strong {
   color: #000;
@@ -1708,9 +1717,6 @@ ul.listcusting li a:hover {
   width: 100%;
   position: relative;
 }
-.carousel-style .owl-item img {
-  width: auto !important;
-}
 .carousel-style .owl-nav button.owl-prev i,
 .carousel-style .carousel-style .owl-nav button.owl-next i {
   font-size: 25px;
@@ -1748,6 +1754,10 @@ ul.listcusting li a:hover {
   cursor: not-allowed;
 }
 
+.category .owl-item img {
+  width: auto !important;
+}
+
 .box-shadow {
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 31, 36, 0.3);
@@ -1765,4 +1775,50 @@ ul.listcusting li a:hover {
     padding-left: 15px;
     padding-right: 15px;
   }
+}
+
+.accordion-height {
+  width: 100%;
+  height: 97.333%;
+  background-color: #fff;
+  position: relative;
+}
+
+.pronamelist {
+  width: 100%;
+  height: 97.333%;
+  background-color: #fff;
+  position: relative;
+  margin-top: 10px;
+}
+.pronamelist ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.pronamelist ul li {
+  width: 100%;
+  display: block;
+}
+.pronamelist ul li a {
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  display: block;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  color: #000;
+  text-decoration: none;
+  position: relative;
+}
+.pronamelist ul li a:after {
+  content: "";
+  font-family: "icomoon";
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  font-size: 22px;
+  color: #666;
+}
+.pronamelist ul li a:hover {
+  color: #F04043;
 }

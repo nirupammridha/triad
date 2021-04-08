@@ -705,8 +705,17 @@ header {
 	font-size: 13px;
 	color: #757575;
 	margin: 0;
+	margin: 0;	
 	padding-bottom: 3px;
 	padding-top: 3px;
+	&.textellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	margin-bottom: 10px;	
+	}	
 	& strong {
 	color: #000;
 	font-size: 15px;
@@ -1342,9 +1351,7 @@ ul.listcusting {
 	display: block;
 	width: 100%;
 	position: relative;
-	& .owl-item img {
-	width: auto !important;
-	}
+	
 	& .owl-nav button.owl-prev i,
 	.carousel-style .owl-nav button.owl-next i {
 	font-size: 25px;
@@ -1378,6 +1385,11 @@ ul.listcusting {
 	}	
 	}
 }
+.category {
+	& .owl-item img {
+	width: auto !important;
+	}
+}
 .box-shadow {
 	@include box-shadow;
 	width: 100%;
@@ -1389,5 +1401,49 @@ ul.listcusting {
 	@media (max-width:992px) {	
 	padding-left: 15px;
 	padding-right: 15px;
+	}
+}
+.accordion-height {
+	width: 100%;
+	height: 97.333%;
+	background-color: #fff;
+	position: relative;
+}
+.pronamelist {
+	width: 100%;
+	height: 97.333%;
+	background-color: #fff;
+	position: relative;
+	margin-top: 10px;
+	& ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	& li {
+	width: 100%;
+	display: block;
+	& a {
+	padding: 1rem 1.25rem;
+	font-size: 1rem;
+	display: block;
+	border-bottom: 1px solid rgba(0,0,0,.125);
+	color: #000;
+	text-decoration: none;
+	position: relative;
+	&:after {
+	content: "\e907";
+	font-family: 'icomoon';
+	position: absolute;
+	top: 13px;
+	right: 13px;
+	font-size: 22px;
+	color: #666;
+	}
+	&:hover {
+     color: $theme-color;
+	}
+	}
+	}
 	}
 }

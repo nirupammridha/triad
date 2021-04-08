@@ -37,7 +37,16 @@ if($parent->term_id == 12){
 	
 	
 <div class="col-lg-3">
-<div class="accordion bg-white" id="accordionExample">
+<div class="pronamelist" style="display: none;">
+<ul>
+<li><a href="">Municipal Castings</a></li>	
+<li><a href="">Pipe Fittings</a></li>	
+<li><a href="">Agricultural Castings</a></li>	
+<li><a href="">Electrical Castings</a></li>	
+</ul>	
+</div>	
+	
+<div class="accordion bg-white accordion-height" id="accordionExample" >
 <?php foreach($categories as $category) {
 		if($category->parent == 12 && category_has_children( $category->term_id, $taxonomy )){
 		$subcategories = get_terms($term->taxonomy,array('child_of' => $category->term_id));
