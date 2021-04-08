@@ -3,6 +3,7 @@
 get_header(); 
 $term = get_queried_object();
 $image = get_field('page_banner', $term);
+$cat_content = get_field('cat_content', "productcategories_".$term->term_id );
 $parent = get_term_top_most_parent( $term->term_id, $term->taxonomy );
 //echo "<pre>"; print_r($parent->term_id); exit();
 $categories = array();
@@ -128,37 +129,7 @@ while ( have_posts() ) : the_post(); ?>
 <div class="col-lg-12">
 	<div class="description">
 	<h4 class="heading">Description</h4>
-	<ul>
-		<li>
-		<div class="nwme"><strong>Material </strong></div>	
-		<div class="value">Ductile Iron</div>	
-		</li>
-
-		<li>
-		<div class="nwme"><strong>Standard </strong></div>	
-		<div class="value">ANSI AWWA C153 and ANSI AWWA C110</div>	
-		</li>
-
-		<li>
-		<div class="nwme"><strong>Sizes </strong></div>	
-		<div class="value">2" upto 24"</div>	
-		</li>	
-
-		<li>
-		<div class="nwme"><strong>Lining </strong></div>	
-		<div class="value">Cement Inside Lining</div>	
-		</li>
-
-		<li>
-		<div class="nwme"><strong>Coating </strong></div>	
-		<div class="value">Coating with NSF approved paint and epoxy coating available</div>	
-		</li>
-
-		<li>
-		<div class="nwme"><strong>Range </strong></div>	
-		<div class="value">Bends, Tees, Crosses, Wyes, Concentric / Eccentric Reducers, Swivels, Flanges and Sleeves</div>	
-		</li>	
-	</ul>
+	<?=$cat_content;?>
 	</div>
 
 </div>
