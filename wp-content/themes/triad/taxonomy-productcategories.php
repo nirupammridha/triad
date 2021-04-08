@@ -144,11 +144,7 @@ while ( have_posts() ) : the_post(); ?>
 <div class="clr"></div>
 <div class="row">
 <div class="col-lg-12">
-	<div class="description">
-	<h4 class="heading">Description</h4>
 	<?=$cat_content;?>
-	</div>
-
 </div>
 </div>	
 <div class="clr height20"></div>

@@ -195,7 +195,7 @@ if ( $sustainabilityterms && !is_wp_error( $sustainabilityterms ) ) { ?>
 	<?php foreach ( $sustainabilityterms as $term ) { ?>
 	<li>
 		<div class="sustainabilitylist-content">
-		<a href=""></a>
+		<a href="<?php echo get_term_link($term->slug, $taxonomy); ?>"></a>
 		<h3><?php echo $term->name; ?></h3>
 		</div>
 		<?php $image = get_field('icon', "sustainabilitycategories_".$term->term_id );
