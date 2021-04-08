@@ -47,8 +47,8 @@ $videos = new WP_Query($_videoArgs);
 	<div class="clr height10"></div>
 <div class="col-lg-12">
 <ul class="productlist">
-	<li class="active"><a href="<?php echo site_url();?>/download">Download</a></li>
-	<li><a href="<?php echo site_url();?>/tmediacategories/exhibitions">Exhibitions</a></li>
+	<li class="active"><a href="<?php echo site_url();?>/download" class="activelink">Download</a></li>
+	<li><a href="<?php echo site_url();?>/tmediacategories/exhibitions" class="activelink">Exhibitions</a></li>
 </ul>
 </div>
 <div class="clr height10"></div>
